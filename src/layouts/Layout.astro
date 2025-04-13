@@ -1,0 +1,92 @@
+---
+import '@fontsource-variable/inter';
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { 
+  title,
+  description = "NRElec - Votre électricien de confiance aux alentours de Tulle et Brive. Rénovation électrique, dépannage et installation."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    
+    <!-- SEO -->
+    <meta name="keywords" content="électricien, Tulle, Brive, NRElec, rénovation électrique, dépannage électrique, installation électrique" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body class="font-sans bg-white">
+    <header class="fixed w-full bg-white shadow-md z-50">
+      <nav class="container mx-auto px-4 py-4">
+        <div class="flex justify-between items-center">
+          <a href="/" class="text-2xl font-bold text-dark">NRElec</a>
+          <div class="hidden md:flex space-x-8">
+            <a href="/#services" class="text-dark hover:text-primary transition-colors">Services</a>
+            <a href="/#realisations" class="text-dark hover:text-primary transition-colors">Réalisations</a>
+            <a href="/#contact" class="text-dark hover:text-primary transition-colors">Contact</a>
+          </div>
+          <a href="/#contact" class="bg-primary text-dark font-semibold px-6 py-2 rounded-lg hover:bg-secondary transition-colors">
+            Devis gratuit
+          </a>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <slot />
+    </main>
+
+    <footer class="bg-dark text-white py-12">
+      <div class="container mx-auto px-4">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-primary">NRElec</h3>
+            <p>Votre électricien de confiance aux alentours de Tulle et Brive.</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-primary">Contact</h3>
+            <p>Tulle, France</p>
+            <p>Tél : XX XX XX XX XX</p>
+            <p>Email : contact@nrelec.fr</p>
+          </div>
+          <div>
+            <h3 class="text-xl font-bold mb-4 text-primary">Horaires</h3>
+            <p>Lundi - Vendredi : 8h - 18h</p>
+            <p>Service d'urgence disponible</p>
+          </div>
+        </div>
+        <div class="mt-8 pt-8 border-t border-gray-700 text-center">
+          <p>&copy; {new Date().getFullYear()} NRElec. Tous droits réservés.</p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
+
+<style is:global>
+  :root {
+    --swiper-theme-color: #FFD700;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    font-family: 'Inter Variable', sans-serif;
+  }
+</style>
