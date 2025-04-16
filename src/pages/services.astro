@@ -1,0 +1,111 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "Nos Services - NRElec";
+const description = "Découvrez nos services d'électricité : rénovation, dépannage, installation de VMC, climatisation et plus encore.";
+
+const services = [
+  {
+    title: "Rénovation Électrique",
+    description: "Mise aux normes de votre installation électrique, remplacement de tableau électrique, modernisation de votre système.",
+    details: [
+      "Mise aux normes NF C 15-100",
+      "Remplacement de tableau électrique",
+      "Installation de prises et points lumineux",
+      "Mise à la terre",
+      "Installation de systèmes connectés"
+    ]
+  },
+  {
+    title: "Dépannage",
+    description: "Intervention rapide pour tout type de panne électrique. Service d'urgence disponible pour votre sécurité.",
+    details: [
+      "Diagnostic des pannes",
+      "Réparation d'urgence",
+      "Remplacement de composants défectueux",
+      "Mise en sécurité",
+      "Conseil et prévention"
+    ]
+  },
+  {
+    title: "Installation VMC",
+    description: "Installation et maintenance de systèmes de ventilation pour votre confort.",
+    details: [
+      "VMC simple flux",
+      "VMC double flux",
+      "VMC hygroréglable",
+      "Entretien et maintenance",
+      "Remplacement de VMC existante"
+    ]
+  },
+  {
+    title: "Climatisation",
+    description: "Installation de systèmes de climatisation pour votre confort thermique.",
+    details: [
+      "Climatisation réversible",
+      "Multi-split",
+      "Pompe à chaleur",
+      "Maintenance et entretien",
+      "Diagnostic et dépannage"
+    ]
+  },
+  {
+    title: "Bornes de Recharge",
+    description: "Installation de bornes de recharge pour véhicules électriques.",
+    details: [
+      "Installation domestique",
+      "Installation professionnelle",
+      "Bornes intelligentes",
+      "Mise aux normes",
+      "Maintenance"
+    ]
+  },
+  {
+    title: "Domotique",
+    description: "Solutions connectées pour le contrôle de votre maison.",
+    details: [
+      "Éclairage connecté",
+      "Volets roulants",
+      "Thermostat intelligent",
+      "Contrôle à distance",
+      "Scénarios automatisés"
+    ]
+  }
+];
+---
+
+<Layout title={title} description={description}>
+  <section class="pt-32 pb-16">
+    <div class="container mx-auto px-4">
+      <h1 class="text-4xl font-bold text-center text-dark mb-12">Nos Services</h1>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {services.map((service) => (
+          <div class="bg-white p-8 rounded-lg shadow-lg border-2 border-primary hover:border-secondary transition-colors">
+            <h2 class="text-2xl font-bold mb-4 text-dark">{service.title}</h2>
+            <p class="text-gray-600 mb-6">{service.description}</p>
+            <ul class="space-y-2">
+              {service.details.map((detail) => (
+                <li class="flex items-center text-gray-600">
+                  <svg class="w-5 h-5 text-primary mr-2" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"/>
+                  </svg>
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      <div class="mt-12 text-center">
+        <a 
+          href="/contact" 
+          class="bg-primary text-dark font-semibold px-8 py-3 rounded-lg hover:bg-secondary transition-colors inline-block"
+        >
+          Demander un devis
+        </a>
+      </div>
+    </div>
+  </section>
+</Layout>
