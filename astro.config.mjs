@@ -4,6 +4,6 @@ import mdx from '@astrojs/mdx';
 
 export default defineConfig({
   integrations: [tailwind(), mdx()],
-  site: 'https://nrelec.fr',
+  site: 'https://nrelec.com',
   compressHTML: true,
 });

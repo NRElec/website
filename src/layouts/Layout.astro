@@ -8,8 +8,45 @@ interface Props {
 
 const { 
   title,
-  description = "NRElec - Votre électricien de confiance aux alentours de Tulle et Brive. Rénovation électrique, dépannage et installation."
+  description
 } = Astro.props;
+
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "NRElec",
+  "image": "https://nrelec.com/logo.png",
+  "description": description,
+  "@id": "https://nrelec.com",
+  "url": "https://nrelec.com",
+  "telephone": "06 42 88 73 81",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "2 le pont",
+    "addressLocality": "Cornil",
+    "postalCode": "19150",
+    "addressCountry": "FR"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 45.2677,
+    "longitude": 1.7659
+  },
+  "areaServed": ["Tulle", "Brive-la-Gaillarde", "Correze"],
+  "priceRange": "€€",
+  "openingHoursSpecification": {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": [
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday"
+    ],
+    "opens": "08:00",
+    "closes": "18:00"
+  }
+};
 ---
 
 <!doctype html>
@@ -20,16 +57,19 @@ const {
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
-    <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
     
     <!-- SEO -->
-    <meta name="keywords" content="électricien, Tulle, Brive, NRElec, rénovation électrique, dépannage électrique, installation électrique, salle de bain, plomberie" />
+    <meta name="keywords" content="électricien, Tulle, Brive, NRElec, rénovation électrique, dépannage électrique, installation électrique, salle de bain, plomberie, électricien tulle, électricien brive, électricien cornil, électricien corrèze, dépannage électrique tulle, rénovation électrique brive" />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta name="geo.region" content="FR-19" />
+    <meta name="geo.placename" content="Tulle, Brive-la-Gaillarde, Cornil" />
     <meta name="robots" content="index, follow" />
+    <script type="application/ld+json" set:html={JSON.stringify(schema)} />
   </head>
   <body class="font-sans bg-white">
     <header class="fixed w-full bg-white shadow-md z-50">
@@ -38,7 +78,7 @@ const {
           <a href="/" class="text-2xl font-bold text-dark">NRElec</a>
           <div class="hidden md:flex space-x-8">
             <a href="/#services" class="text-dark hover:text-primary transition-colors">Services</a>
-            <a href="/#realisations" class="text-dark hover:text-primary transition-colors">Réalisations</a>
+            <a href="/projects" class="text-dark hover:text-primary transition-colors">Réalisations</a>
             <a href="/#contact" class="text-dark hover:text-primary transition-colors">Contact</a>
           </div>
           <a href="/#contact" class="bg-primary text-dark font-semibold px-6 py-2 rounded-lg hover:bg-secondary transition-colors">

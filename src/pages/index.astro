@@ -2,11 +2,16 @@
 import Layout from '../layouts/Layout.astro';
 import ProjectSlider from '../components/ProjectSlider.astro';
 import ContactForm from '../components/ContactForm.astro';
+import {getCollection} from "astro:content";
 
-const projects = await Astro.glob('../content/projects/*.md');
+const projects = await getCollection('projects');
+
+const title = "Électricien à Tulle, Brive et ses alentours | NRElec - Installation et Dépannage";
+const description = "Intervention rapide pour tous vos travaux d'électricité : installation, rénovation, dépannage. Devis gratuit.";
+
 ---
 
-<Layout title="NRElec - Électricien aux alentours de Tulle et Brive">
+<Layout title={title} description={description}>
   <!-- Hero Section -->
   <section class="pt-32 pb-16 bg-gradient-to-br from-white to-gray-100">
     <div class="container mx-auto px-4">
