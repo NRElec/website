@@ -1,0 +1,52 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const title = "À propos - NRElec";
+const description = "Rémi Salles, électricien professionnel aux alentours de Tulle et Brive. Découvrez mon parcours et mon engagement pour un travail de qualité.";
+---
+
+<Layout title={title} description={description}>
+  <section class="pt-32 pb-16">
+    <div class="container mx-auto px-4">
+      <div class="max-w-3xl mx-auto">
+        <h1 class="text-4xl font-bold text-dark mb-8">À propos</h1>
+        
+        <div class="prose prose-lg max-w-none">
+          <div class="bg-white p-8 rounded-lg shadow-lg">
+            <img
+              src="/images/remi-salles.jpg"
+              alt="Rémi Salles"
+              class="w-48 h-48 rounded-full mx-auto mb-8 object-cover"
+            />
+            
+            <h2 class="text-2xl font-bold text-dark mb-4">Rémi Salles</h2>
+            <p class="text-gray-600 mb-6">
+              Électricien  passionné par mon métier, je mets un point d'honneur à
+              réaliser chaque projet avec méticulosité et professionnalisme. Mon objectif est 
+              simple : répondre au mieux aux besoins de mes clients tout en maîtrisant le budget et garantissant un
+              travail de qualité irréprochable.
+            </p>
+
+            <h3 class="text-xl font-bold text-dark mb-3">Mon engagement</h3>
+            <ul class="list-disc list-inside text-gray-600 mb-6">
+              <li>Une écoute attentive de vos besoins</li>
+              <li>Des solutions adaptées à votre projet</li>
+              <li>Un travail soigné et professionnel</li>
+              <li>Un respect strict des normes en vigueur</li>
+              <li>Une transparence totale sur les interventions</li>
+            </ul>
+
+            <div class="mt-8">
+              <a 
+                href="/contact"
+                class="bg-primary text-dark font-semibold px-8 py-3 rounded-lg hover:bg-secondary transition-colors inline-block"
+              >
+                Me contacter
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>
